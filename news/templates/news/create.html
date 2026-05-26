@@ -1,0 +1,110 @@
+{% extends 'itmain/layout.html' %}
+
+{% block title %}Новости на сайте{% endblock %}
+
+{% block content %}
+<style>
+/* Плавное появление */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 0.9s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Задержка появления */
+.fade-in:nth-child(1) { animation-delay: 0.1s; }
+.fade-in:nth-child(2) { animation-delay: 0.3s; }
+
+/* Стиль формы */
+.form-block {
+    background: rgba(30, 30, 30, 0.6);
+    border: 1px solid #444;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Все поля ТЕМНО-СИНИЕ + БЕЛЫЙ ТЕКСТ */
+.form-control {
+    background-color: #0F172A !important;
+    border: 1px solid #1E3A8A !important;
+    color: #ffffff !important;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    width: 100% !important;
+}
+/* Подсказки белые */
+.form-control::placeholder {
+    color: rgba(255,255,255,0.8) !important;
+}
+/* Фокус синяя подсветка */
+.form-control:focus {
+    border-color: #3B82F6 !important;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25) !important;
+    outline: none;
+    background-color: #1E293B !important;
+}
+
+/* Кнопка */
+.submit-btn {
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    padding: 0.7rem 2rem;
+}
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(40, 167, 69, 0.35);
+}
+
+/* Заголовок градиент */
+.gradient-heading {
+    background: linear-gradient(90deg, #ff4d4d, #ff7a7a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+</style>
+
+<div class="container py-5">
+    <div class="text-center mb-5 fade-in">
+        <h1 class="fw-bold display-5 gradient-heading">Article submission form</h1>
+    </div>
+
+    <div class="form-block fade-in">
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="mb-4">
+                <input type="text" name="title" placeholder="Article title" class="form-control">
+            </div>
+
+            <div class="mb-4">
+                <input type="text" name="anons" placeholder="Short article preview" class="form-control">
+            </div>
+
+            <div class="mb-4">
+                <textarea name="text" rows="6" placeholder="Text" class="form-control"></textarea>
+            </div>
+
+            <div class="mb-5">
+                <input type="date" name="date" class="form-control">
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-success submit-btn fs-6" type="submit">
+                    ✅ Publish article
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

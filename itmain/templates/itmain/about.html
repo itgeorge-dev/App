@@ -1,0 +1,56 @@
+{% extends 'itmain/layout.html' %}
+{% load static %}
+
+{% block title %}About me / Portfolio {% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="about-profile-card text-center p-5 rounded-4 shadow-lg" style="background:#1e1e1e;border:2px solid #eb5959;">
+                <!-- Аватар -->
+                <div class="mb-5">
+                    <img src="{% static 'itmain/img/portfolio.png' %}"
+                         class="rounded-circle shadow-lg"
+                         style="width:160px;height:160px;object-fit:cover;border:3px solid #eb5959;transition:0.3s ease;"
+                         onmouseover="this.style.transform='scale(1.05)';this.style.boxShadow='0 0 15px rgba(235,89,89,0.4)';"
+                         onmouseout="this.style.transform='scale(1)';this.style.boxShadow='none';">
+                </div>
+
+                <!-- Заголовок -->
+                <h2 class="fw-bold mb-3" style="color:#eb5959;">About me </h2>
+                <p class="mb-5" style="color:#d8d8d8;line-height:1.7;font-size:15px;">
+                    My name is George and I am a grade 9 student.
+                 I am passionate about web development, actively learning programming and trying to build beautiful, functional websites.
+                 I keep learning new things and aim to create high-quality, exciting projects.
+
+                </p>
+
+                <!-- Блок навыков -->
+                <h4 class="fw-semibold mb-4" style="color:#eb5959;">My skills</h4>
+                <div class="d-flex gap-3 flex-wrap justify-content-center">
+                    <span class="px-3 py-2 rounded-3" style="background:#333;color:#fff;border:1px solid #eb5959;transition:0.25s ease;"
+                          onmouseover="this.style.background='#eb5959';this.style.color='#111';this.style.transform='translateY(-3px)';"
+                          onmouseout="this.style.background='#333';this.style.color='#fff';this.style.transform='translateY(0)';">HTML5</span>
+
+                    <span class="px-3 py-2 rounded-3" style="background:#333;color:#fff;border:1px solid #eb5959;transition:0.25s ease;"
+                          onmouseover="this.style.background='#eb5959';this.style.color='#111';this.style.transform='translateY(-3px)';"
+                          onmouseout="this.style.background='#333';this.style.color='#fff';this.style.transform='translateY(0)';">CSS</span>
+
+                    <span class="px-3 py-2 rounded-3" style="background:#333;color:#fff;border:1px solid #eb5959;transition:0.25s ease;"
+                          onmouseover="this.style.background='#eb5959';this.style.color='#111';this.style.transform='translateY(-3px)';"
+                          onmouseout="this.style.background='#333';this.style.color='#fff';this.style.transform='translateY(0)';">Bootstrap</span>
+
+                    <span class="px-3 py-2 rounded-3" style="background:#333;color:#fff;border:1px solid #eb5959;transition:0.25s ease;"
+                          onmouseover="this.style.background='#eb5959';this.style.color='#111';this.style.transform='translateY(-3px)';"
+                          onmouseout="this.style.background='#333';this.style.color='#fff';this.style.transform='translateY(0)';">Python</span>
+
+                    <span class="px-3 py-2 rounded-3" style="background:#333;color:#fff;border:1px solid #eb5959;transition:0.25s ease;"
+                          onmouseover="this.style.background='#eb5959';this.style.color='#111';this.style.transform='translateY(-3px)';"
+                          onmouseout="this.style.background='#333';this.style.color='#fff';this.style.transform='translateY(0)';">Django</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
