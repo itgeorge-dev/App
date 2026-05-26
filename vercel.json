@@ -1,1 +1,16 @@
-
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "itgeorge/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxDuration": 90 }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "itgeorge/wsgi.py"
+    }
+  ]
+}
